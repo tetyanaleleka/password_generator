@@ -155,6 +155,19 @@ function getRandom(arr) {
 function generatePassword() {
   let options = getPasswordOptions();
   console.log(options);
+  let result = []
+
+  let possibleCharacter = []
+
+  let guaranteedCharacter = []
+
+  if(options.hasSpecialCharacters) {
+    possibleCharacter = possibleCharacter.concat(specialCharacters);
+    guaranteedCharacter.push(getRandom(specialCharacters))
+  }
+
+  console.log(possibleCharacter);
+  console.log(guaranteedCharacter);
 }
 
 // Get references to the #generate element
