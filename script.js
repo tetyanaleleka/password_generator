@@ -98,13 +98,13 @@ function getPasswordOptions() {
     return;
   }
 
-  if(length < 10){
-    alert('Password length must be at least 10 characters');
+  if(length < 8){
+    alert('Password length must be at least 8 characters');
     return;
   }
 
-  if(length > 64){
-    alert('Password length must be less than 65 characters');
+  if(length > 128){
+    alert('Password length must be less than 129 characters');
     return;
   }
 
