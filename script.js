@@ -90,10 +90,57 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  //variable to store length of password from user input
-  let length = parsInt(
+  let length = parseInt(
     prompt("How many characters would you like your password to contain?")
   )
+  if(isNaN(length) === true){
+    alert('Password length mush be provided as number');
+    return;
+  }
+
+  if(length < 10){
+    alert('Password length must be at least 10 characters');
+    return;
+  }
+
+  if(length > 64){
+    alert('Password length must be less than 65 characters');
+    return;
+  }
+
+  let hasSpecialCharacters = confirm(
+    "Click OK to confirm including special characters"
+  )
+
+  let hasNumericCharacters = confirm(
+    "Click OK to confirm including numeric characters"
+  )
+
+  let hasLowerCasedCharacters = confirm(
+    "Click OK to confirm including lowercase characters"
+  )
+
+  let hasUpperCasedCharacters = confirm(
+    "Click OK to confirm including uppercase characters"
+  )
+
+  if(hasLowerCasedCharacters === false &&
+    hasUpperCasedCharacters === false &&
+    hasSpecialCharacters === false &&
+    hasNumericCharacters === false ) {
+      alert('Must select at least one character type');
+      return;
+    }
+
+  let passwordOptions = {
+    length: length,
+    hasSpecialCharacters: hasSpecialCharacters,
+    hasUpperCasedCharacters: hasUpperCasedCharacters,
+    hasNumericCharacters: hasNumericCharacters,
+    hasLowerCasedCharacters: hasLowerCasedCharacters
+  }
+
+  return passwordOptions;
 }
 
 // Function for getting a random element from an array
@@ -106,7 +153,8 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  
+  let options = getPasswordOptions();
+  console.log(options);
 }
 
 // Get references to the #generate element
