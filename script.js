@@ -182,13 +182,14 @@ function generatePassword() {
   }
 
   for(let index = 0; index < options.length; index++){
-    possibleCharacter = getRandom(possibleCharacter);
-
-    result.push(possibleCharacter);
+    var generated = getRandom(possibleCharacter);
+    console.log(generated);
+    result.push(generated);
   }
  
+  console.log(result);
 
-
+  return result.join("")
 }
 
 // Get references to the #generate element
