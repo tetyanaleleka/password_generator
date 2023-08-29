@@ -166,8 +166,29 @@ function generatePassword() {
     guaranteedCharacter.push(getRandom(specialCharacters))
   }
 
-  console.log(possibleCharacter);
-  console.log(guaranteedCharacter);
+  if(options.hasLowerCasedCharacters) {
+    possibleCharacter = possibleCharacter.concat(lowerCasedCharacters);
+    guaranteedCharacter.push(getRandom(lowerCasedCharacters))
+  }
+
+  if(options.hasUpperCasedCharacters) {
+    possibleCharacter = possibleCharacter.concat(upperCasedCharacters);
+    guaranteedCharacter.push(getRandom(upperCasedCharacters))
+  }
+
+  if(options.hasNumericCharacters) {
+    possibleCharacter = possibleCharacter.concat(numericCharacters);
+    guaranteedCharacter.push(getRandom(numericCharacters))
+  }
+
+  for(let index = 0; index < options.length; index++){
+    possibleCharacter = getRandom(possibleCharacter);
+
+    result.push(possibleCharacter);
+  }
+ 
+
+
 }
 
 // Get references to the #generate element
